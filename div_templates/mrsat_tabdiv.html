@@ -1,0 +1,67 @@
+<!!main>
+
+    <script	type="text/javascript">
+            
+			/*****************************************/
+
+            var MrsatTab = new Object();
+
+			if(typeof(window["%TAB_OBJ%"])!="object")
+			{
+			    alert("Error: name of object must be %TAB_OBJ%");
+		    }    
+            
+			MrsatTab.TAB_UID = %ID%;
+
+			MrsatTab.TAB_TYPE = "mrsat";
+			
+			if(TABS_LIST)
+			{
+			    TABS_LIST.push("Multisat"+%ID%);
+			}    
+            
+			window["tabInitMultisat"+%ID%] = function(){tabInitMultisatGeneral(MrsatTab)}; 
+
+			/*****************************************/
+
+			MrsatTab.dt_end = today();
+
+			/*****************************************/
+            
+    </script>
+
+    <script	type="text/javascript">
+
+    </script>
+
+    <div class="reducer" id="COVERDIV_%ID%">
+
+				<div style="padding:5px;">
+                  
+                  <b>TAB MULTI: MrsatTab</b>
+                  
+                  <hr>
+                  <br>
+                  
+                  %div_date_singlemode%
+
+                  <br>
+                  <br>
+
+                    <fieldset>
+                    	<legend><a onFocus="if (this.blur) this.blur()" href="javascript:toggle_group('group_filters_hide_%ID%')">
+                    	    <img src="/images/arrow_closed.gif" id="group_filters_hide_img" alt="" />&nbsp;
+                    	    <span id="group_filters_hide_tm_label">Фильтр</span>&nbsp;</a>
+                    	</legend>
+                    	<div id="group_filters_hide" style="display: none">  
+                    	    
+                                										    
+                          %div_sat_filter%
+                          
+                                                                         
+                  	</div>
+                    </fieldset>
+
+				</div>
+
+    </div>

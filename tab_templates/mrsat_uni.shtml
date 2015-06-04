@@ -1,0 +1,21 @@
+
+<style type="text/css">
+.tab_midsat_icon_2 {
+	background-image: url('/geosmis/tabs/unisat/tab_templates/unisat_mr.png'); 
+	width: 23px;
+	height: 23px;
+	margin-left: 3px;
+} 
+</style>
+
+<div id="tab_multi_midsat" data-dojo-type="dijit/layout/ContentPane" data-dojo-props='
+			iconClass:"tab_midsat_icon_2",
+			onShow: function(){}'>
+    
+<!--#config errmsg="" -->
+<!--#include virtual="/geosmis/tabs/unisat/cgi/templates.pl?template=mrsat_tabdiv" -->
+
+</div>
+
+<!--#config errmsg="" -->
+<!--#include virtual="mrsat_lang.shtml" -->

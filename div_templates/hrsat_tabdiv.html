@@ -1,0 +1,75 @@
+<!!main>
+
+    <script	type="text/javascript">
+            
+			/*****************************************/
+
+            var HrsatTab = new Object();
+            
+			if(typeof(window["%TAB_OBJ%"])!="object")
+			{
+			    alert("Error: name of object must be %TAB_OBJ%");
+		    }    
+
+			HrsatTab.TAB_UID = %ID%;
+
+			HrsatTab.TAB_TYPE = "hrsat";
+			
+			if(TABS_LIST)
+			{
+			    TABS_LIST.push("Multisat"+%ID%);
+			}    
+            
+			window["tabInitMultisat"+%ID%] = function(){tabInitMultisatGeneral(HrsatTab)};
+			
+			/*****************************************/
+			
+			HrsatTab.dt_begin = change_date_days(today(),-3);
+
+			HrsatTab.dt_end = today();
+			
+			/*****************************************/
+            
+    </script>
+
+    
+<div class="reducer" id="COVERDIV_%ID%">
+<table class="tabgroup" width="100%" cellspacing="3" cellpadding="3">
+<tr>
+<td>
+                  
+    
+    
+    <b>TAB MULTI: HrsatTab</b>
+    
+    <hr>
+    <br>
+
+        %div_date_rangemode%
+
+   
+    <br><br>
+    
+
+    <fieldset>
+    	<legend><a onFocus="if (this.blur) this.blur()" href="javascript:toggle_group('group_filters_hide_%ID%')">
+    	    <img src="/images/arrow_closed.gif" id="group_filters_hide_img" alt="" />&nbsp;
+    	    <span id="group_filters_hide_tm_label">Фильтр</span>&nbsp;</a>
+    	</legend>
+    	<div id="group_filters_hide" style="display: none">  
+    	    
+                										    
+          %div_sat_filter%
+          
+          %div_stn_filter%
+          
+          %div_my_filter% 
+                                                         
+  	</div>
+    </fieldset>
+					            		
+</td>
+</tr>
+</table>
+</div>
+            

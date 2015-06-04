@@ -1,0 +1,46 @@
+<!!main>
+[
+		{ id: "Devs", name:"AllDevices",type:"root"},
+		
+		{   id: "MODIS", 
+		    name:"Модис (TERRA, AQUA)", 
+		    engname:"Modis (TERRA, AQUA)", 
+		    parent: "Devs",
+		    stype:"devices"},
+		
+		{   id: "TERRA", 
+		    name:"TERRA", 
+		    engname:"TERRA", 
+		    parent: "MODIS", 
+		    checked: true,
+		    stype:"sats"},
+
+		{   id: "AQUA", 
+		    name:"AQUA", 
+		    engname:"AQUA", 
+		    parent: "MODIS", 
+		    checked: true,
+		    stype:"sats"},
+		    
+		{   id: "NOAA", 
+		    name:"AVHRR (NOAA)", 
+		    engname:"AVHRR (NOAA)",
+		    sats: "NOAA", 
+		    devices: "AVHRR", 
+		    parent: "Devs",
+		    checked: true,
+		    stype:"satdevs"},
+
+		{   id: "VIIRS", 
+		    name:"VIIRS (NPP)", 
+		    engname:"VIIRS (NPP)",
+		    sats: "NPP", 
+		    devices: "VIIRS", 
+		    parent: "Devs",
+		    checked: true,
+		    stype:"satdevs"},
+
+		    
+
+		    
+]

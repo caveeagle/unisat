@@ -1,0 +1,33 @@
+<!!main>
+
+<span id='rangemode_date_label'>Дата</span>
+<br>
+<span id='rangemode_date_from_label'>&nbsp;&nbsp;&nbsp;c&nbsp;</span>
+<b>
+<span id="start_rangemode_date_field"  
+      onclick="scwNextAction=rangemode_date_change.runsAfterSCW(this,'start',%ID%,'%TAB_OBJ%');scwShow(this,event);" 
+      style="cursor: pointer; cursor: hand; text-decoration: underline">2012-12-12</span>
+</b>
+<img src="/images/calend.gif"   align="absbottom" 
+onclick="scwNextAction=rangemode_date_change.runsAfterSCW(this,'start',%ID%,'%TAB_OBJ%');
+scwShow(scwID('start_rangemode_date_field_%ID%'),event);" >
+
+<br>
+<span id='rangemode_date_to_label'>&nbsp;по&nbsp;</span>
+<b>
+<span id="stop_rangemode_date_field" 
+onclick="scwNextAction=rangemode_date_change.runsAfterSCW(this,'stop',%ID%,'%TAB_OBJ%');scwShow(this,event);" 
+style="cursor: pointer; cursor: hand; text-decoration: underline">2012-12-12</span>
+</b>
+<img src="/images/calend.gif" align="absbottom" 
+onClick="scwNextAction=rangemode_date_change.runsAfterSCW(this,'stop',%ID%,'%TAB_OBJ%');
+scwShow(scwID('stop_rangemode_date_field_%ID%'),event);">
+
+<span>
+<input id="only_one_day_checkbox" type="checkbox" value="off" 
+onclick="rangemode_date_disable(%ID%,'%TAB_OBJ%');">
+<span id='only_one_day_label'>- только за эту дату</span>
+</span>
+
+
+

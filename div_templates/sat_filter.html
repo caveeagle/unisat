@@ -1,0 +1,107 @@
+<!!main>
+
+<style type="text/css">
+@import "/geosmis/tabs/unisat/css/tree_claro.css";
+</style>
+
+<script type="text/javascript">
+
+    var satdata_%ID% = %SAT_DATA% ;
+
+    if(!%TAB_OBJ%.tree)
+    {
+        %TAB_OBJ%.tree = {};
+    }    
+    %TAB_OBJ%.tree.satstore = {};
+    %TAB_OBJ%.tree.sattree = {};
+    
+    
+    
+</script>
+
+
+<script type="text/javascript">
+require([ "dojo/ready","dojo/store/Memory","cbtree/Tree","cbtree/model/TreeStoreModel"],
+    function( ready, Memory, Tree, ObjectStoreModel) {
+                    
+            ready(function(){
+                makeSatellitesTree();
+            }); 
+                    
+                    
+			function makeSatellitesTree()
+			{
+				%TAB_OBJ%.tree.satstore = new Memory( { data: satdata_%ID% });
+				
+				satmodel = new ObjectStoreModel( { store: %TAB_OBJ%.tree.satstore,
+												 query: {id: "Devs"},
+												 labelAttr: "name", /*  NAME OF PROPERTIES ! */
+												 labelType: "html",
+												 rootLabel: "Приборы и спутники",
+												 checkedRoot: true
+											 });
+
+					%TAB_OBJ%.tree.sattree = new Tree( 
+					{ 
+                        model: satmodel, 
+                        id:"tree_%ID%",
+                        attachToForm:true,
+                        checkBoxes: true,
+                        nodeIcons: false,						    
+                        leafIcons: false,
+                        autoExpand: true,
+                        
+                        getTreeNodeById: function( id ) // new function to find DOM Tree node
+                        {
+                            return this._itemNodesMap[ id ][0];
+                        },
+                        branchIcons: false
+                        
+					}, "CheckboxTreeDiv_%ID%" );
+
+					%TAB_OBJ%.tree.sattree.startup();
+
+					%TAB_OBJ%.tree.sattree.on("click",satDeviceChanged);
+					
+					%TAB_OBJ%.tree.sattree.on("load",satTreeOnLoad);
+		    }
+		    
+            function satDeviceChanged(item, node, event)
+            {
+               getSatdevicesState();
+            }    		
+            
+            function satTreeOnLoad()
+            {
+                collapseChildrenNodes();
+            }    
+            
+            function collapseChildrenNodes()
+            {
+                /* Collapse children */
+                var ROOT_ID = "Devs";
+                
+                var satstore = %TAB_OBJ%.tree.satstore;
+                
+            	dojo.when(satstore.getChildren(satstore.get(ROOT_ID)), function (children) {
+            	    children.forEach(function (child) 
+            	    { 
+            	           //console.info("Children: " + child.name);
+            			   var treeNode = %TAB_OBJ%.tree.sattree.getTreeNodeById(child.id);
+            			   treeNode.collapse();
+            	    });
+            	});
+            }    
+		        		
+});
+
+</script>
+
+
+
+<div class="claro">
+    <form name="satform" id=satformid>
+	    <div id="CheckboxTreeDiv_%ID%"></div>
+    </form>
+</div>	
+&nbsp;

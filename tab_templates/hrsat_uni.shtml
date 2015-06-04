@@ -1,0 +1,20 @@
+ <style type="text/css">
+.tab_hrsat_icon_2 {
+	background-image: url('/geosmis/tabs/unisat/tab_templates/unisat_hr.png'); 
+	width: 23px;
+	height: 23px;
+	margin-left: 3px;
+} 
+</style>
+
+<div id="tab_unisat" data-dojo-type="dijit/layout/ContentPane" data-dojo-props='
+			iconClass:"tab_hrsat_icon_2",
+			onShow: function(){}'>
+    
+<!--#config errmsg="" -->
+<!--#include virtual="/geosmis/tabs/unisat/cgi/templates.pl?template=hrsat_tabdiv" -->
+
+</div>
+
+<!--#config errmsg="" -->
+<!--#include virtual="hrsat_lang.shtml" -->

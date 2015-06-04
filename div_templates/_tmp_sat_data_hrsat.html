@@ -1,0 +1,81 @@
+<!!main>
+[
+		{ id: "Devs", name:"AllDevices",type:"root"},
+		
+		{   id: "OLI-TIRS", 
+		    name:"OLI-TIRS (Ландсат 8)", 
+		    engname:"OLI-TIRS (Landsat 8)", 
+		    parent: "Devs", 
+		    sats: "LANDSAT",
+		    devices: "OLI-TIRS", 
+		    checked: true,
+		    stype:"satdevs"},
+		
+		{   id: "ETM", 
+		    name:"ETM (Ландсат 7)", 
+		    engname:"ETM (Landsat 8)", 
+		    parent: "Devs", 
+		    sats: "LANDSAT",
+		    devices: "ETM", 
+		    checked: true,
+		    stype:"satdevs"},
+		
+		{   id: "TM", 
+		    name:"TM (Ландсат 4,5)", 
+		    engname:"TM (Landsat 4,5)", 
+		    parent: "Devs", 
+		    stype:"devices"},
+
+		{   id: "Landsat 4", 
+		    name:"Ландсат 4", 
+		    engname:"Landsat 4", 
+		    parent: "TM",
+		    stype:"sats"},
+		
+		{   id: "Landsat 5", 
+		    name:"Ландсат 5", 
+		    engname:"Landsat 5", 
+		    parent: "TM",
+		    stype:"sats"},
+		
+		{   id: "KMSS-101, KMSS-102", 
+		    name:"КМСС-101, КМСС-102 (Метеор-М1)", 
+		    engname:"KMSS-101, KMSS-102 (Meteor-M1)",
+		    sats: "METEOR-M1", 
+		    devices: "KMSS-101, KMSS-102", 
+		    parent: "Devs",
+		    stype:"satdevs"},
+
+		{   id: "HRV, HRVIR", 
+		    name:"HRV, HRVIR (SPOT 2, SPOT 4)", 
+		    engname:"HRV, HRVIR (SPOT 2, SPOT 4)", 
+		    parent: "Devs",
+		    stype:"devices"},
+		    
+		{   id: "SPOT 2", 
+		    name:"SPOT 2", 
+		    engname:"SPOT 2", 
+		    parent: "HRV, HRVIR",
+		    stype:"sats"},
+		    
+		{   id: "SPOT 4", 
+		    name:"SPOT 4", 
+		    engname:"SPOT 4", 
+		    parent: "HRV, HRVIR",
+		    stype:"sats"},
+		    
+		{   id: "DEIMOS", 
+		    name:"Деймос", 
+		    engname:"DEIMOS", 
+		    parent: "Devs",
+		    stype:"satdevs"},
+		    
+		{   id: "JSS 56", 
+		    name:"JSS 56 (RapidEye)", 
+		    engname:"JSS 56 (RapidEye)", 
+		    parent: "Devs",
+		    sats: "RAPIDEYE", 
+		    devices: "JSS 56", 
+		    stype:"satdevs"}
+		    
+]

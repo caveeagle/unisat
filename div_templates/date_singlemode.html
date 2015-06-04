@@ -1,0 +1,22 @@
+<!!main>
+<span id='singlemode_date_label'>За дату:&nbsp;</span> 
+    
+<b><u>
+<span id="singlemode_date_field" 
+       onclick="scwNextAction=singlemode_date_change.runsAfterSCW(this,this.id,%ID%,'%TAB_OBJ%');scwShow(this,event);" 
+       style="cursor: pointer;">2012-12-12</span>
+</u></b>
+       
+&nbsp; 
+
+<img id=singlemode_date_prev src="/images/prev_min.gif" 
+     onclick="singlemode_date_change_oneday(-1,%ID%,%TAB_OBJ%);" align="absbottom">
+
+<img id=singlemode_date_next src="/images/next_min.gif" 
+     onclick="singlemode_date_change_oneday(1,%ID%,%TAB_OBJ%);" align="absbottom">
+
+<img id=singlemode_date_change src="/images/calend.gif" 
+onclick="scwNextAction=singlemode_date_change.runsAfterSCW(this,this.id,%ID%,'%TAB_OBJ%');scwShow(scwID('singlemode_date_field_%ID%'),event);" 
+align="absbottom">
+
+

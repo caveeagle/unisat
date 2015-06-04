@@ -1,0 +1,129 @@
+<!!main>
+
+<style type="text/css">
+@import "/geosmis/tabs/unisat/css/tree_claro.css";
+</style>
+
+<script type="text/javascript">
+require([
+	"dojo/ready",
+	"dojo/store/Memory",					 // basic dojo/store
+	"cbtree/Tree",								 // Checkbox tree
+	"cbtree/model/TreeStoreModel"	// ObjectStoreModel
+	], function( ready, Memory, Tree, ObjectStoreModel) {
+			// Declare an JSON object
+
+var stndata = [
+		{ id: "Stn", name:"AllStations",type:"root"},
+		
+		{   id: "SMIS", 
+		    name:"ИКИ РАН", 
+		    engname:"IKI",
+		    checked: true, 
+		    parent: "Stn"
+		},
+		{   id: "PUSHKINO", 
+		    name:"ЦБ \"Авиалесоохрана\"", 
+		    engname:"Pushkino",
+		    checked: true, 
+		    parent: "Stn"
+		},
+		{   id: "PLANETA", 
+		    name:"ЕЦ \"Планета\"", 
+		    engname:"Planeta",
+		    checked: true, 
+		    parent: "Stn"
+		},
+		{   id: "ZSRCPOD", 
+		    name:"ЗСЦ \"Планета\"", 
+		    engname:"ZSRCPOD",
+		    checked: true, 
+		    parent: "Stn"
+		},
+		{   id: "DVRCPOD", 
+		    name:"ДВЦ \"Планета\"", 
+		    engname:"DVRCPOD",
+		    checked: true, 
+		    parent: "Stn"
+		},
+		{   id: "NCOMZ", 
+		    name:"НЦ ОМЗ", 
+		    engname:"NCOMZ", 
+		    parent: "Stn"
+		},
+		{   id: "Geoportal", 
+		    name:"Геопортал Роскосмоса", 
+		    engname:"Geoportal", 
+		    parent: "Stn"
+		}
+		
+		    
+	];
+                    
+					var stnstore = new Memory( { data: stndata });
+					stnmodel = new ObjectStoreModel( { store: stnstore,
+													 query: {id: "Stn"},
+													 labelAttr: "name", /*  NAME OF PROPERTIES ! */
+													 labelType: "html",
+													 rootLabel: "Центры данных",
+													 checkedRoot: true
+												 });
+                    
+					ready(function(){
+						stntree = new Tree( 
+						{ 
+                            model: stnmodel, 
+                            id:"treestn00",
+                            attachToForm:true,
+                            checkBoxes: true,
+                            nodeIcons: false,						    
+                            leafIcons: false,
+                            autoExpand: true,
+                            branchIcons: false
+                            
+						}, "CheckboxTreeStn" );
+
+						stntree.startup();
+
+						stntree.on("click",stnChanged);
+						
+				}); 
+				
+ 				function stnChanged(item, node, event)
+ 				{
+                   getStnState();
+ 			    }    		
+				
+                function getStnState()
+                {
+                      var Stn = new Array();
+                      
+                      var collect  = document.forms["stnform"].elements;
+                      var elements = Array.prototype.slice.call(collect);
+                      elements.forEach( function (element) 
+                      {
+                          if (element.type == "checkbox") 
+                          {
+                              var checkboxWidget = dijit.getEnclosingWidget( element );
+                              var chbox = checkboxWidget.item;
+                              if(chbox.checked)
+                              {
+                                    console.info("INFO-STN: id="+chbox.id);
+                                    
+                              }
+                          }
+                      });
+                }
+       
+                 
+                 
+});
+</script>
+
+
+	<div class="claro">
+        <form name="stnform" id=stnformid>
+		    <div id="CheckboxTreeStn"></div>
+	    </form>
+	</div>	
+    &nbsp;

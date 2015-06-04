@@ -1,0 +1,31 @@
+<!!main>
+
+<script type="text/javascript">
+    
+    dojo.require("dijit.form.CheckBox");
+    
+</script>
+
+	<!--<div style="font-size:10px; margin:10px; font-family: Verdana,Arial,Helvetica,sans-serif; ">
+	      Дополнительные фильтры:
+    </div>-->    
+    
+    <div style="font-size:10px; margin:10px; font-family: Verdana,Arial,Helvetica,sans-serif;">
+
+        <input id="filter_is_corrected" data-dojo-type="dijit.form.CheckBox" name="filter_is_corrected"
+        onChange=""> <label for="filter_is_corrected">Только скорректированные данные</label>
+        
+        <br>
+        
+        
+        <input id="filter_is_cloud" name="filter_is_cloud" data-dojo-type="dijit.form.CheckBox" 
+        checked onChange=""> <label for="filter_is_cloud">С облачностью не более </label>
+        
+        	<input align=right name="max_cloud" size="2" value="10" type="text"
+        	            onchange="1reload_hrsat_parameters();"
+        	            style="font-size: 10px;" ><span>%</span>
+        	            
+    	
+    </div>	
+	
+
